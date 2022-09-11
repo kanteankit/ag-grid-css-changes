@@ -1,0 +1,206 @@
+// See this for details: https://vuetifyjs.com/en/features/sass-variables/#variable-api
+
+// *************************
+// Globals
+// *************************
+// Add this after V3 is released
+// $body-font-family: 'Nunito', 'Tahoma', 'Verdana', 'sans-serif';
+// Remove this after V3 is released
+$body-font-family: 'Tahoma', 'Verdana', 'sans-serif';
+$font-size-root: 62.5%;
+
+// *************************
+// Falkonry custom colors and values
+// *************************
+$falkonry-grey-light: #F5F6FA;
+$falkonry-grey-medium: #DFE6F0;
+$falkonry-primary: #4696EC;
+$falkonry-orange: #FF9E1B;
+$falkonry-link-text: #295381;
+// *************************
+// Overrides for styles/settings/light.scss
+// *************************
+$material-light: ( "background": $falkonry-grey-light);
+
+// *************************
+// Overrides for button component
+// *************************
+$btn-sizes: (
+  'x-small': 16,
+  'small': 20,
+  'default': 28,
+  'large': 36,
+  'x-large': 44
+);
+$btn-font-sizes: (
+  'x-small': .75rem,
+  'small': 1rem,
+  'default': 1.2rem,
+  'large': 1.6rem,
+  'x-large': 2.0rem
+);
+// $btn-icon-font-size: 1.2rem;
+// $btn-icon-padding: 6px;
+$btn-border-radius: 2px;
+$btn-letter-spacing: normal;
+$btn-text-transform: none;
+
+// *************************
+// Overrides for v-snackbar component
+// *************************
+$snackbar-wrapper-margin: 0px;
+$snackbar-content-padding: 20px;
+
+// *************************
+// Overrides for v-tabs component
+// *************************
+$tab-font-size: 1.8rem;
+$tabs-item-letter-spacing: normal;
+
+// *************************
+// Overrides for v-data-table component
+// *************************
+$data-table-regular-header-font-size: 1.2rem;
+$data-table-regular-row-font-size: 1.2rem;
+// $data-table-regular-row-height: 30px;
+
+// *************************
+// Overrides for v-card component
+// *************************
+$card-title-font-size: 1.2rem;
+$card-text-font-size: 1.4rem;
+
+// *************************
+// Overrides for v-list-item-title component
+// *************************
+$list-item-title-font-size: 1.4rem;
+$list-item-subtitle-font-size: 1.2rem;
+$list-item-dense-title-font-size: 1.2rem;
+$list-item-dense-title-line-height: 1.5rem;
+$list-item-padding: 0 8px;
+$list-item-content-padding: 4px 0;
+$list-item-action-margin: 5px;
+$list-item-action-icon-margin: 5px;
+
+// *************************
+// Overrides for v-tooltip component
+// *************************
+$tooltip-font-size: 1.2rem;  //decrease font size of cursor overlay
+
+// *************************
+// Overrides for v-toolbar component
+// *************************
+$toolbar-content-padding-x: 8px;
+$toolbar-content-padding-y: 2px;
+$toolbar-btn-icon-size: 36px;
+$toolbar-title-padding: 10px;
+
+// *************************
+// Overrides for v-treeview component
+// *************************
+$treeview-node-height-dense: 30px; // Min height of each node in the tree. Default is 40px
+$treeview-node-padding: 12px; // y-axis padding for the entire node row. Default is 8px
+$treeview-node-margin: 3px; // x-axis margin between elements inside the node. Default is 6px
+$treeview-node-level-width: 12px; // Size of indentation at each level. Default is 24px
+
+// *************************
+// Overrides for v-input component
+// *************************
+$input-font-size: 1.4rem;
+
+// *************************
+// Overrides for v-breadcrumbs component
+// *************************
+$breadcrumbs-item-font-size: 1.2rem;
+
+// *************************
+// Custom CSS classes to override Vuetify Font and add Nunito Font
+// Remove this after V3 is released
+// *************************
+$typoOptions: text-h1, text-h2, text-h3, text-h4, text-h5, text-h6, text-caption, text-subtitle-1, text-subtitle-2, text-body-1, text-body-2, text-button, text-overline;
+.v-application.nunitoFont {
+  font-family: 'Nunito', 'Tahoma', 'Verdana', 'sans-serif' !important;
+  @each $typoOption in $typoOptions {
+    .#{$typoOption} {
+      font-family: 'Nunito', 'Tahoma', 'Verdana', 'sans-serif' !important;
+    }
+  }
+}
+
+// *************************
+// TODO: Try to extend this in the future like we did with $font-weights
+// In May 2022, we tried to extend this with new definitions like:
+//   '20': (
+//     'size': 2.0rem,
+//     'line-height': 2.2rem
+//   ),
+// With the idea that we could then use it like `text-20` instead of having to do `text-h1`.
+// It didn't work. Vuetify created invalid CSS, but maybe they will support extending this later.
+// *************************
+$headings: (
+  'h1': (
+    'size': 2.2rem,
+    'line-height': 2.4rem
+  ),
+  'h2': (
+    'size': 1.8rem,
+    'line-height': 2.0rem
+  ),
+  'h3': (
+    'size': 1.6rem,
+    'line-height': 1.8rem
+  ),
+  'h4': (
+    'size': 1.4rem,
+    'line-height': 1.6rem
+  ),
+  'h5': (
+    'size': 1.2rem,
+    'line-height': 1.5rem
+  ),
+  'h6': (
+    'size': 1.0rem,
+    'line-height': 1.3rem
+  ),
+  'subtitle-1': ( // Same as h3
+    'size': 1.6rem,
+    'line-height': 1.8rem
+  ),
+  'subtitle-2': ( // Same as h4
+    'size': 1.4rem,
+    'line-height': 1.6rem
+  ),
+  'body-1': ( // Same as h5
+    'size': 1.2rem,
+    'line-height': 1.5rem
+  ),
+  'body-2': ( // Same as h6
+    'size': 1.0rem,
+    'line-height': 1.3rem
+  ),
+  'button': ( // Same as h5
+    'size': 1.2rem,
+    'line-height': 1.5rem
+  ),
+  'caption': ( // Same as h6
+    'size': 1.0rem,
+    'line-height': 1.3rem
+  ),
+  'overline': ( // Same as h6
+    'size': 1.0rem,
+    'line-height': 1.3rem
+  )
+);
+
+$font-weights: (
+  'thin': 100,
+  'light': 300,
+  'regular': 400,
+  'medium': 500,
+  'semibold': 600,
+  'bold': 700,
+  'black': 900
+);
+
+// Link text color
+.v-application a { color: $falkonry-link-text !important;}

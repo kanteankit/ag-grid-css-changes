@@ -1,0 +1,22 @@
+# General project files
+node_modules/
+dist/
+npm-debug.log
+.DS_Store
+.idea
+
+# Build files
+build/
+shippable/
+
+# Cypress files
+# This file SHOULD be ignored, but
+#   a) we don't have a good way to store secrets right now
+#   b) it's only a test account on dev
+# cypress.env.json
+tests/e2e/reports
+tests/e2e/jsonreports
+
+# Macula
+public/macula.worker.js
+public/macula.worker.js.map
