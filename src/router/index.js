@@ -6,6 +6,8 @@ import agGridOffExisting from './agGridOffExisting'
 import agGridOffProposed from './agGridOffProposed.js'
 import agGridOn from './agGridOn.js'
 
+import AgGridTable from '../ag-grid-on/AgGridTable.vue'
+
 Vue.use(VueRouter)
 
 const router = new VueRouter({
@@ -19,7 +21,12 @@ const router = new VueRouter({
     },
     ...agGridOffExisting,
     ...agGridOffProposed,
-    ...agGridOn
+    ...agGridOn,
+    {
+      path: '/ag-grid-table',
+      name: 'agGridTable',
+      component: AgGridTable
+    }
   ]
 })
 

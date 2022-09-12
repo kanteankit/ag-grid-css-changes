@@ -16,6 +16,7 @@
         :mini-variant-width="miniDrawerWidth"
         class="purple lighten-5"
         >Mini
+        <v-btn icon to="/"><v-icon>mdi-home</v-icon></v-btn>
       </v-navigation-drawer>
     </div>
     <!-- Navigation drawers End -->
