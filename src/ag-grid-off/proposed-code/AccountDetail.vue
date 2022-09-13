@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex-grow-1 d-flex flex-column">
     <!-- Navigation drawers Start -->
     <div>
       <v-navigation-drawer
@@ -27,19 +27,25 @@
         v-if="systemBarVisible"
         class="pa-4 justify-center elevation-5 text-h5"
       ></v-system-bar>
-      <v-container fluid class="red lighten-3 py-1 px-3 ma-0">
-        <v-row align="center" justify="end">
-          <span class="ml-4">{{ accountTitle }}</span>
+      <v-container
+        fluid
+        class="red lighten-3 py-1 px-3 ma-0 fill-height flex-column d-flex"
+      >
+        <div class="d-flex align-center align-self-stretch">
+          <span>{{ accountTitle }}</span>
           <v-spacer></v-spacer>
           <v-btn elevation="0" color="transparent">Some Button</v-btn>
-        </v-row>
+        </div>
         <transition mode="out-in">
           <!-- CompositeView Code starts -->
-          <v-container fluid class="blue lighten-5 pa-0 ma-0">
-            <div class="column flex no-gutters">
+          <v-container
+            fluid
+            class="d-flex blue lighten-5 pa-0 ma-0 flex flex-column"
+          >
+            <div class="d-flex flex-column compositeWrapper flex">
               <!-- For loop on `views` config renders the title and tabs view -->
 
-              <div class="px-3 py-0 mb-2">
+              <div class="px-3 py-0 mb-2 green lighten-3">
                 <!-- Title View Starts-->
                 <v-row
                   data-testid-title
@@ -57,10 +63,20 @@
                 <!-- Title View Ends -->
               </div>
 
-              <div class="px-3 py-0 mb-2">
+              <div
+                class="px-3 py-0 mb-2 lime lighten-3 flex d-flex flex-column"
+              >
                 <!-- Tabs View starts -->
-                <div style="position: relative">
-                  <v-tabs class="v-tabs-v3" v-model="activeTab" ref="tabs">
+                <div
+                  style="position: relative"
+                  class="d-flex flex-column flex"
+                  data-testid-tabs
+                >
+                  <v-tabs
+                    class="v-tabs-v3 d-flex flex-column"
+                    v-model="activeTab"
+                    ref="tabs"
+                  >
                     <v-tab
                       v-for="tab in tabs"
                       :key="`header-${tab.title}`"
@@ -75,42 +91,53 @@
                         {{ tab.title }}
                       </span>
                     </v-tab>
-                  </v-tabs>
-                  <v-tabs-items
-                    class="btn-visibility transparent"
-                    v-model="activeTab"
-                  >
-                    <v-tab-item
-                      v-for="tab in tabs"
-                      :key="`content-${tab.title}`"
+                    <v-tabs-items
+                      class="btn-visibility transparent cyan lighten-4 flex d-flex flex-column"
+                      v-model="activeTab"
                     >
-                      <v-card flat class="mt-2" color="transparent">
-                        <!-- Recent Table starts -->
-                        <div data-testid-list v-if="tab.title === 'Recents'">
-                          <v-data-table
-                            :headers="recentHeaders"
-                            :items="recentItems"
-                            v-bind="tableProps"
-                            class="elevation-1"
-                          ></v-data-table>
-                        </div>
-                        <!-- Recent Table ends -->
-                        <!-- Datastream Table starts -->
-                        <div
-                          data-testid-list
-                          v-if="tab.title === 'Datastreams'"
+                      <v-tab-item
+                        v-for="tab in tabs"
+                        :key="`content-${tab.title}`"
+                        class="flex flex-column"
+                        active-class="active-tab-item"
+                      >
+                        <v-card
+                          flat
+                          class="mt-2 flex d-flex flex-column"
+                          color="transparent"
                         >
-                          <v-data-table
-                            :headers="datastreamHeaders"
-                            :items="datastreamItems"
-                            v-bind="tableProps"
-                            class="elevation-1"
-                          ></v-data-table>
-                        </div>
-                        <!-- Datastream Table ends -->
-                      </v-card>
-                    </v-tab-item>
-                  </v-tabs-items>
+                          <!-- Recent Table starts -->
+                          <div
+                            data-testid-list
+                            class="flex"
+                            v-if="tab.title === 'Recents'"
+                          >
+                            <v-data-table
+                              :headers="recentHeaders"
+                              :items="recentItems"
+                              v-bind="tableProps"
+                              class="elevation-1"
+                            ></v-data-table>
+                          </div>
+                          <!-- Recent Table ends -->
+                          <!-- Datastream Table starts -->
+                          <div
+                            data-testid-list
+                            class="flex"
+                            v-if="tab.title === 'Datastreams'"
+                          >
+                            <v-data-table
+                              :headers="datastreamHeaders"
+                              :items="datastreamItems"
+                              v-bind="tableProps"
+                              class="elevation-1"
+                            ></v-data-table>
+                          </div>
+                          <!-- Datastream Table ends -->
+                        </v-card>
+                      </v-tab-item>
+                    </v-tabs-items>
+                  </v-tabs>
                 </div>
                 <!-- Tabs View ends -->
               </div>
@@ -213,10 +240,12 @@ export default {
 .v-tabs-v3 >>> .v-tabs-bar {
   background-color: transparent;
   height: 3.3rem;
-  top: 7px;
 }
 .active-tab .v3 {
   font-weight: 700;
+}
+.active-tab-item {
+  display: flex;
 }
 .btn-visibility {
   overflow: visible;

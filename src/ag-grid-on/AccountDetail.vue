@@ -98,9 +98,8 @@
                       <v-tab-item
                         v-for="(tab, index) in tabs"
                         :key="`content-${tab.title}`"
-                        :class="{
-                          'flex d-flex flex-column': activeTab === index
-                        }"
+                        class="flex flex-column"
+                        active-class="active-tab-item"
                       >
                         <v-card
                           flat
@@ -118,6 +117,8 @@
                               class="ag-theme-material"
                               :columnDefs="recentHeaders"
                               :rowData="recentItems"
+                              v-resize.quiet="resizeHandler"
+                              @grid-ready="onGridReady"
                             >
                             </ag-grid-vue>
                           </div>
@@ -133,6 +134,8 @@
                               class="ag-theme-material"
                               :columnDefs="datastreamHeaders"
                               :rowData="datastreamItems"
+                              v-resize.quiet="resizeHandler"
+                              @grid-ready="onGridReady"
                             >
                             </ag-grid-vue>
                           </div>
@@ -198,7 +201,11 @@ export default {
         { headerName: 'Assessments', field: 'assessmentCount' },
         { headerName: 'Data Points', field: 'dataPoints' },
         { headerName: 'Actions', field: 'action' }
-      ]
+      ],
+
+      // Ag-grid stuff
+      gridApi: null,
+      columnApi: null
     }
   },
   computed: {
@@ -210,6 +217,16 @@ export default {
     }
   },
   methods: {
+    onGridReady(params) {
+      this.gridApi = params.api
+      this.columnApi = params.columnApi
+
+      // Check if columns need to be resized on load
+      this.resizeHandler()
+    },
+    resizeHandler() {
+      this.gridApi.sizeColumnsToFit()
+    },
     generateItems(headers, itemsCount) {
       const listOfItems = []
       for (let i = 0; i < itemsCount; i++) {
@@ -243,13 +260,15 @@ export default {
 .v-tabs-v3 >>> .v-tabs-bar {
   background-color: transparent;
   height: 3.3rem;
-  top: 7px;
 }
 .active-tab .v3 {
   font-weight: 700;
 }
 .btn-visibility {
   overflow: visible;
+}
+.active-tab-item {
+  display: flex;
 }
 [data-testid-tabs] :deep(.v-window__container) {
   flex: 1;
