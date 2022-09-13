@@ -72,6 +72,7 @@
                   class="d-flex flex-column flex"
                   data-testid-tabs
                 >
+                  <!-- v-tab and v-tabs-items is written inside v-tabs because v-tabs has flex: 1 CSS from Vuetify. So, if we keep v-tab and v-tabs-items separate like Vuetify shows in examples, then, the tabs will occupy flex height and prevent the tab content from occupying full height-->
                   <v-tabs
                     class="v-tabs-v3 d-flex flex-column"
                     v-model="activeTab"
@@ -232,7 +233,7 @@ export default {
 .active-tab-item {
   display: flex;
 }
-[data-testid-tabs] :deep(.v-window__container) {
+:deep([data-testid-tabs] .v-tabs-items > .v-window__container) {
   flex: 1;
 }
 </style>

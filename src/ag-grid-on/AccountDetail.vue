@@ -253,7 +253,7 @@ export default {
 .active-tab-item {
   display: flex;
 }
-[data-testid-tabs] :deep(.v-window__container) {
+:deep([data-testid-tabs] .v-tabs-items > .v-window__container) {
   flex: 1;
 }
 </style>

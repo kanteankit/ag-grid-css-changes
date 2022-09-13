@@ -91,6 +91,8 @@
                         </div>
                         <!-- Timeline content ends -->
                         <!-- Models Content starts -->
+
+                        <!-- Bottom Tabs Start -->
                         <div
                           data-testid-bottom-tabs
                           v-if="tab.title === 'Models'"
@@ -161,6 +163,7 @@
                             </v-tab>
                           </v-tabs>
                         </div>
+                        <!-- Bottom Tabs Ends -->
                         <!-- Models Content ends -->
                         <!-- Events Content starts -->
                         <div data-testid-list v-if="tab.title === 'Events'">

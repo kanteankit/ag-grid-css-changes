@@ -72,6 +72,7 @@
                   class="d-flex flex-column flex"
                   data-testid-tabs
                 >
+                  <!-- v-tab and v-tabs-items is written inside v-tabs because v-tabs has flex: 1 CSS from Vuetify. So, if we keep v-tab and v-tabs-items separate like Vuetify shows in examples, then, the tabs will occupy flex height and prevent the tab content from occupying full height-->
                   <v-tabs
                     class="v-tabs-v3 d-flex flex-column"
                     v-model="activeTab"
@@ -112,23 +113,32 @@
                           </div>
                           <!-- Timeline content ends -->
                           <!-- Models Content starts -->
+                          <!-- Bottom tabs starts -->
                           <div
                             data-testid-bottom-tabs
+                            class="flex d-flex flex-column"
                             v-if="tab.title === 'Models'"
                           >
                             <v-tabs-items
                               v-model="activeBottomTab"
                               :ref="`bottomTabItems-${tab.title}`"
-                              class="btn-visibility transparent amber"
+                              class="btn-visibility transparent amber flex d-flex flex-column"
                             >
                               <v-tab-item
                                 v-for="bottomTab in bottomTabs"
                                 :key="`content-${bottomTab.title}`"
+                                class="flex-column flex"
+                                active-class="active-bottom-tab-item"
                               >
-                                <v-card flat class="mt-2" color="transparent">
+                                <v-card
+                                  flat
+                                  class="mt-2 flex d-flex flex-column"
+                                  color="transparent"
+                                >
                                   <!-- Ready Table starts -->
                                   <div
                                     data-testid-list
+                                    class="flex"
                                     v-if="bottomTab.title === 'Ready'"
                                   >
                                     <v-data-table
@@ -142,6 +152,7 @@
                                   <!-- Processing Table starts -->
                                   <div
                                     data-testid-list
+                                    class="flex"
                                     v-if="bottomTab.title === 'Processing'"
                                   >
                                     <v-data-table
@@ -182,6 +193,7 @@
                               </v-tab>
                             </v-tabs>
                           </div>
+                          <!-- Bottom tabs ends -->
                           <!-- Models Content ends -->
                           <!-- Events Content starts -->
                           <div data-testid-list v-if="tab.title === 'Events'">
@@ -297,7 +309,7 @@ export default {
 .active-tab-item {
   display: flex;
 }
-[data-testid-tabs] :deep(.v-window__container) {
+:deep([data-testid-tabs] .v-tabs-items > .v-window__container) {
   flex: 1;
 }
 
@@ -336,5 +348,11 @@ export default {
   font-weight: 600;
   font-size: 14px;
   box-shadow: inset 0px 11px 8px -10px #c0c0c0;
+}
+:deep([data-testid-bottom-tabs] .v-tabs-items > .v-window__container) {
+  flex: 1;
+}
+.active-bottom-tab-item {
+  display: flex;
 }
 </style>
