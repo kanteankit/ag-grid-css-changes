@@ -52,6 +52,10 @@ export default {
             {
               to: { name: 'existingModelsPage' },
               description: 'Existing Models tab view with tabs at the bottom'
+            },
+            {
+              to: { name: 'existingReportDetail' },
+              description: 'Existing Report detail page with tabs at the bottom'
             }
           ]
         },
@@ -65,6 +69,10 @@ export default {
             {
               to: { name: 'proposedModelsPage' },
               description: 'Proposed Models Page with v-data-table'
+            },
+            {
+              to: { name: 'proposedReportDetail' },
+              description: 'Proposed Report detail page when ag-grid is off'
             }
           ]
         },
@@ -78,6 +86,10 @@ export default {
             {
               to: { name: 'agGridOnModelsPage' },
               description: 'Proposed Models Page page with ag-grid table'
+            },
+            {
+              to: { name: 'agGridOnReportDetail' },
+              description: 'Proposed Report detail page when ag-grid is on'
             }
           ]
         }
