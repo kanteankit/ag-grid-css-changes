@@ -96,7 +96,7 @@
                       v-model="activeTab"
                     >
                       <v-tab-item
-                        v-for="(tab, index) in tabs"
+                        v-for="tab in tabs"
                         :key="`content-${tab.title}`"
                         class="flex flex-column"
                         active-class="active-tab-item"

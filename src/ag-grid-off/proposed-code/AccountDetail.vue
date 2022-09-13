@@ -244,10 +244,13 @@ export default {
 .active-tab .v3 {
   font-weight: 700;
 }
+.btn-visibility {
+  overflow: visible;
+}
 .active-tab-item {
   display: flex;
 }
-.btn-visibility {
-  overflow: visible;
+[data-testid-tabs] :deep(.v-window__container) {
+  flex: 1;
 }
 </style>

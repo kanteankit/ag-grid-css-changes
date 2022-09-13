@@ -39,7 +39,7 @@
             <div class="column flex no-gutters">
               <!-- For loop on `views` config renders the title and tabs view -->
 
-              <div class="px-3 py-0 mb-2">
+              <div class="px-3 py-0 mb-2 green lighten-3">
                 <!-- Title View Starts-->
                 <v-row
                   data-testid-title
@@ -57,7 +57,7 @@
                 <!-- Title View Ends -->
               </div>
 
-              <div class="px-3 py-0 mb-2">
+              <div class="px-3 py-0 mb-2 lime lighten-3">
                 <!-- Tabs View starts -->
                 <div style="position: relative">
                   <v-tabs class="v-tabs-v3" v-model="activeTab" ref="tabs">
@@ -77,7 +77,7 @@
                     </v-tab>
                   </v-tabs>
                   <v-tabs-items
-                    class="btn-visibility transparent"
+                    class="btn-visibility transparent cyan lighten-4"
                     v-model="activeTab"
                   >
                     <v-tab-item
