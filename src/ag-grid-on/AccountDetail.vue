@@ -160,9 +160,11 @@
 </template>
 
 <script>
+import GenerateItemsMixin from '@/mixins/GenerateItemsMixin'
 import { AgGridVue } from 'ag-grid-vue'
 
 export default {
+  mixins: [GenerateItemsMixin],
   components: {
     AgGridVue
   },
@@ -210,10 +212,10 @@ export default {
   },
   computed: {
     recentItems() {
-      return this.generateItems(this.recentHeaders, 10)
+      return this.generateItems(this.recentHeaders, 10, 'field')
     },
     datastreamItems() {
-      return this.generateItems(this.datastreamHeaders, 100)
+      return this.generateItems(this.datastreamHeaders, 100, 'field')
     }
   },
   methods: {
@@ -226,25 +228,6 @@ export default {
     },
     resizeHandler() {
       this.gridApi.sizeColumnsToFit()
-    },
-    generateItems(headers, itemsCount) {
-      const listOfItems = []
-      for (let i = 0; i < itemsCount; i++) {
-        const item = headers.reduce((memo, header) => {
-          // For each header, provide some random string or timestamp
-          if (header.field.toLowerCase().includes('time')) {
-            memo[header.field] = new Date().toISOString()
-          } else {
-            memo[header.field] = (Math.random() + 1).toString(36).substring(3)
-          }
-
-          return memo
-        }, {})
-
-        listOfItems.push(item)
-      }
-
-      return listOfItems
     }
   }
 }

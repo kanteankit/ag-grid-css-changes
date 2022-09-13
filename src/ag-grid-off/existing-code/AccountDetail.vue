@@ -127,7 +127,10 @@
 </template>
 
 <script>
+import GenerateItemsMixin from '@/mixins/GenerateItemsMixin'
+
 export default {
+  mixins: [GenerateItemsMixin],
   data() {
     return {
       // Drawer stuff
@@ -141,15 +144,16 @@ export default {
       accountTitle: 'My Account',
       pageTitle: 'My Account',
 
-      // Tabs Stuff
-      activeTab: 0,
-      tabs: [{ title: 'Recents' }, { title: 'Datastreams' }],
-
       // Common Table Props
       tableProps: {
         itemsPerPage: 10,
         itemKey: 'name'
       },
+
+      // Tabs Stuff
+      activeTab: 0,
+      tabs: [{ title: 'Recents' }, { title: 'Datastreams' }],
+
       // Recent table Stuff
       recentHeaders: [
         { text: 'Name', value: 'name' },
@@ -177,27 +181,6 @@ export default {
     },
     datastreamItems() {
       return this.generateItems(this.datastreamHeaders, 100)
-    }
-  },
-  methods: {
-    generateItems(headers, itemsCount) {
-      const listOfItems = []
-      for (let i = 0; i < itemsCount; i++) {
-        const item = headers.reduce((memo, header) => {
-          // For each header, provide some random string or timestamp
-          if (header.value.toLowerCase().includes('time')) {
-            memo[header.value] = new Date().toISOString()
-          } else {
-            memo[header.value] = (Math.random() + 1).toString(36).substring(3)
-          }
-
-          return memo
-        }, {})
-
-        listOfItems.push(item)
-      }
-
-      return listOfItems
     }
   }
 }

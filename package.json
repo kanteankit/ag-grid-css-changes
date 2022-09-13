@@ -21,16 +21,16 @@
     "@vue/cli-service": "^4.5.18",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.0.3",
+    "css-loader": "^5.2.7",
     "eslint": "^6.8.0",
-    "eslint-plugin-vue": "^8.3.0",
-    "vue-template-compiler": "^2.7.8",
-    "eslint-plugin-prettier": "^3.3.1",
-    "eslint-plugin-vuetify": "^1.1.0",
     "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-vue": "^8.3.0",
+    "eslint-plugin-vuetify": "^1.1.0",
     "sass": "~1.32.6",
     "sass-loader": "^8.0.0",
-    "css-loader": "^5.2.7",
     "vue-cli-plugin-vuetify": "^2.4.3",
+    "vue-template-compiler": "^2.7.8",
     "vuetify-loader": "^1.7.3"
   },
   "eslintConfig": {
@@ -38,7 +38,10 @@
     "env": {
       "node": true
     },
-    "extends": ["plugin:vue/essential", "eslint:recommended"],
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
     "rules": {},
     "parserOptions": {
       "parser": "babel-eslint"
@@ -49,7 +52,11 @@
       "autoprefixer": {}
     }
   },
-  "browserslist": ["> 1%", "last 2 versions", "not ie <= 8"],
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
   "keywords": [],
   "description": ""
 }
