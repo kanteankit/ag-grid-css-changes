@@ -48,6 +48,10 @@ export default {
               to: { name: 'existingAccountDetail' },
               description:
                 'Existing Account detail page (The one that shows recents assessments, datastreams and live models)'
+            },
+            {
+              to: { name: 'existingModelsPage' },
+              description: 'Existing Models tab view with tabs at the bottom'
             }
           ]
         },
@@ -57,6 +61,10 @@ export default {
             {
               to: { name: 'proposedAccountDetail' },
               description: 'Proposed Account detail page with v-data-table'
+            },
+            {
+              to: { name: 'proposedModelsPage' },
+              description: 'Proposed Models Page with v-data-table'
             }
           ]
         },
@@ -66,6 +74,10 @@ export default {
             {
               to: { name: 'agGridOnAccountDetail' },
               description: 'Proposed Account detail page with ag-grid table'
+            },
+            {
+              to: { name: 'agGridOnModelsPage' },
+              description: 'Proposed Models Page page with ag-grid table'
             }
           ]
         }
