@@ -257,7 +257,6 @@ export default {
 
       // Bottom tabs stuff
       activeBottomTab: 0,
-      tabItemsWidth: '82%', // This is set by resize event in BottomTabsView.
       bottomTabs: [{ title: 'Ready' }, { title: 'Processing' }],
 
       // Ready table Stuff

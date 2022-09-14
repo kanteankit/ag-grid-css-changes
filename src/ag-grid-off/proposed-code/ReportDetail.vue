@@ -77,6 +77,7 @@
                   </div>
 
                   <div class="purple lighten-3 d-flex flex-column flex">
+                    <!-- Bottom Tabs View starts -->
                     <div
                       data-testid-bottom-tabs
                       class="flex d-flex flex-column"
@@ -113,11 +114,7 @@
                                     type="image"
                                   ></v-skeleton-loader
                                 ></v-card>
-                                <div
-                                  id="editorId"
-                                  style="overflow-y: visible"
-                                  v-else
-                                ></div>
+                                <div id="editorId" v-else></div>
                                 <v-toolbar
                                   dense
                                   flat
@@ -179,6 +176,7 @@
                         </v-tab>
                       </v-tabs>
                     </div>
+                    <!-- Bottom Tabs View ends -->
                   </div>
                 </div>
                 <!-- Report Detail ends -->
@@ -266,7 +264,8 @@ export default {
           'link'
         ],
         link_context_toolbar: true,
-        content_style: 'body { line-height: 1.1; } img {max-width: 100%;}',
+        content_style:
+          'body { line-height: 1.1;overflow-y:visible !important; } img {max-width: 100%;}',
         max_height: '100%',
         min_height: '100%',
         toolbar:
@@ -330,7 +329,7 @@ export default {
 :deep(.tox.tox-tinymce.tox-tinymce--toolbar-sticky-off) {
   border-radius: 10px 10px 0px 0px !important;
   height: calc(
-    100% - 48px - 48px
-  ) !important; /* First 48px for bottom tabs bar. Next 48px for the editors toolbar that has the Save button */
+    100% - 50px - 48px
+  ) !important; /* First 50px for bottom tabs bar. Next 48px for the editors toolbar that has the Save button */
 }
 </style>
