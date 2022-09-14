@@ -59,11 +59,11 @@
 
               <div class="px-3 py-0 mb-2 lime lighten-3">
                 <!-- Report Detail starts -->
-                <v-row>
-                  <v-col cols="12" class="d-flex justify-end">
+                <v-row no-gutters data-id-report-detail>
+                  <v-col cols="12" class="d-flex justify-end red darken-1">
                     <v-btn icon><v-icon>mdi-plus</v-icon></v-btn>
                   </v-col>
-                  <v-col cols="12">
+                  <v-col cols="12" class="purple lighten-3">
                     <!-- Bottom Tabs View starts -->
                     <div data-testid-bottom-tabs>
                       <v-tabs-items
@@ -78,7 +78,7 @@
                           <v-card flat class="mt-2" color="transparent">
                             <!-- ReportCoversheet  starts -->
                             <div
-                              data-report-detail
+                              data-report-coversheet
                               v-if="bottomTab.title === 'Coversheet'"
                             >
                               <v-container fluid class="py-0">
@@ -290,5 +290,13 @@ export default {
   font-weight: 600;
   font-size: 14px;
   box-shadow: inset 0px 11px 8px -10px #c0c0c0;
+}
+/* TinyMCE stuff from ReportCoversheet */
+.toolbarStyling {
+  border: 2px solid #eee;
+  border-radius: 0px 0px 10px 10px;
+}
+:deep(.tox.tox-tinymce.tox-tinymce--toolbar-sticky-off) {
+  border-radius: 10px 10px 0px 0px !important;
 }
 </style>
