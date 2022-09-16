@@ -101,7 +101,7 @@
                             <!-- ReportCoversheet  starts -->
                             <div
                               data-report-coversheet
-                              class="flex d-flex flex-column"
+                              class="flex d-flex flex-column mb-12"
                               v-if="bottomTab.title === 'Coversheet'"
                             >
                               <v-container
@@ -329,7 +329,7 @@ export default {
 :deep(.tox.tox-tinymce.tox-tinymce--toolbar-sticky-off) {
   border-radius: 10px 10px 0px 0px !important;
   height: calc(
-    100% - 50px - 48px
-  ) !important; /* First 50px for bottom tabs bar. Next 48px for the editors toolbar that has the Save button */
+    100% - 48px
+  ) !important; /* Reduced 48px for the editors toolbar that has the Save button */
 }
 </style>

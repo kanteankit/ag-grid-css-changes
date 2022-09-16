@@ -132,7 +132,7 @@
                               >
                                 <v-card
                                   flat
-                                  class="mt-2 flex d-flex flex-column"
+                                  class="mt-2 flex d-flex flex-column mb-12"
                                   color="transparent"
                                 >
                                   <!-- Ready Table starts -->
